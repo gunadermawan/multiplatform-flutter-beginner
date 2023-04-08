@@ -34,12 +34,15 @@ class FirstScreen extends StatelessWidget {
               ))
         ],
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.menu,
             color: Colors.white,
           ),
           onPressed: () {},
         ),
+      ),
+      body: const Center(
+        child: Text('hello world!'),
       ),
     );
   }
