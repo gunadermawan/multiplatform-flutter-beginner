@@ -41,33 +41,9 @@ class FirstScreen extends StatelessWidget {
           onPressed: () {},
         ),
       ),
-      // body: Center(
-      //   child: Container(
-      //     decoration: BoxDecoration(
-      //         color: Colors.red,
-      //         boxShadow: const [
-      //           BoxShadow(
-      //             color: Colors.black,
-      //             offset: Offset(3, 6),
-      //             blurRadius: 10,
-      //           )
-      //         ],
-      //         border: Border.all(color: Colors.white, width: 3),
-      //         borderRadius: BorderRadius.circular(10)),
-      //     padding: const EdgeInsets.all(10),
-      //     child: const Text(
-      //       'Hi flutter!',
-      //       style: TextStyle(fontSize: 40),
-      //     ),
-      //   ),
-      // ),
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: const <Widget>[
-          Icon(Icons.share),
-          Icon(Icons.thumb_up),
-          Icon(Icons.thumb_down)
-        ],
+      body: IconButton(
+        onPressed: () {},
+        icon: const Icon(Icons.volume_down),
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
