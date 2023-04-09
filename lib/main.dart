@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -25,8 +27,7 @@ class FirstScreen extends StatefulWidget {
 }
 
 class _FirstScreenState extends State<FirstScreen> {
-  String _name = "";
-  String? language;
+  bool lightOn = false;
 
   @override
   Widget build(BuildContext context) {
@@ -34,35 +35,20 @@ class _FirstScreenState extends State<FirstScreen> {
       appBar: AppBar(
         title: const Text('First Screen'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            TextField(
-              decoration: const InputDecoration(
-                  hintText: "Write your name here", labelText: "Your Name"),
-              onChanged: (String value) {
-                setState(() {
-                  _name = value;
-                });
-              },
+      body: Switch(
+        value: lightOn,
+        onChanged: (bool value) {
+          setState(() {
+            lightOn = value;
+          });
+
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(lightOn ? 'Light On' : 'Light Off'),
+              duration: const Duration(seconds: 1),
             ),
-            const SizedBox(
-              height: 20,
-            ),
-            ElevatedButton(
-                onPressed: () {
-                  showDialog(
-                      context: context,
-                      builder: (context) {
-                        return AlertDialog(
-                          content: Text('Hello, $_name'),
-                        );
-                      });
-                },
-                child: const Text("Submit"))
-          ],
-        ),
+          );
+        },
       ),
     );
   }
