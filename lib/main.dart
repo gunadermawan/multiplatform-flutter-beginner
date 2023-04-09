@@ -27,7 +27,7 @@ class FirstScreen extends StatefulWidget {
 }
 
 class _FirstScreenState extends State<FirstScreen> {
-  bool lightOn = false;
+  String? language;
 
   @override
   Widget build(BuildContext context) {
@@ -35,21 +35,44 @@ class _FirstScreenState extends State<FirstScreen> {
       appBar: AppBar(
         title: const Text('First Screen'),
       ),
-      body: Switch(
-        value: lightOn,
-        onChanged: (bool value) {
-          setState(() {
-            lightOn = value;
-          });
-
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(lightOn ? 'Light On' : 'Light Off'),
-              duration: const Duration(seconds: 1),
+      body: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          ListTile(
+            leading: Radio<String>(
+              value: 'Dart',
+              groupValue: language,
+              onChanged: (String? value) {
+                setState(() {
+                  language = value;
+                  showSnackbar();
+                });
+              },
             ),
-          );
-        },
+            title: const Text('Dart'),
+          ),
+          ListTile(
+            leading: Radio<String>(
+              value: 'Kotlin',
+              groupValue: language,
+              onChanged: (String? value) {
+                setState(() {
+                  language = value;
+                  showSnackbar();
+                });
+              },
+            ),
+            title: const Text('Kotlin'),
+          )
+        ],
       ),
     );
+  }
+
+  void showSnackbar() {
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+      content: Text('$language selected'),
+      duration: const Duration(seconds: 1),
+    ));
   }
 }
