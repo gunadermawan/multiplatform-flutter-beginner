@@ -28,6 +28,7 @@ class FirstScreen extends StatefulWidget {
 
 class _FirstScreenState extends State<FirstScreen> {
   String? language;
+  bool agree = false;
 
   @override
   Widget build(BuildContext context) {
@@ -39,30 +40,16 @@ class _FirstScreenState extends State<FirstScreen> {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           ListTile(
-            leading: Radio<String>(
-              value: 'Dart',
-              groupValue: language,
-              onChanged: (String? value) {
+            leading: Checkbox(
+              value: agree,
+              onChanged: (bool? value) {
                 setState(() {
-                  language = value;
+                  agree = value!;
                   showSnackbar();
                 });
               },
             ),
             title: const Text('Dart'),
-          ),
-          ListTile(
-            leading: Radio<String>(
-              value: 'Kotlin',
-              groupValue: language,
-              onChanged: (String? value) {
-                setState(() {
-                  language = value;
-                  showSnackbar();
-                });
-              },
-            ),
-            title: const Text('Kotlin'),
           )
         ],
       ),
