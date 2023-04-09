@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -36,22 +34,12 @@ class _FirstScreenState extends State<FirstScreen> {
       appBar: AppBar(
         title: const Text('First Screen'),
       ),
-      body: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          ListTile(
-            leading: Checkbox(
-              value: agree,
-              onChanged: (bool? value) {
-                setState(() {
-                  agree = value!;
-                  showSnackbar();
-                });
-              },
-            ),
-            title: const Text('Dart'),
-          )
-        ],
+      body: Center(
+        child: Image.asset(
+          'images/attendance_app.png',
+          width: 200,
+          height: 200,
+        ),
       ),
     );
   }
