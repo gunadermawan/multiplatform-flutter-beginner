@@ -32,7 +32,7 @@ class _FirstScreenState extends State<FirstScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('First Screen'),
+        title: const Text('First Screen', style: TextStyle(fontFamily:'Oswald', fontSize: 30),),
       ),
       body: Center(
         child: Image.asset(
