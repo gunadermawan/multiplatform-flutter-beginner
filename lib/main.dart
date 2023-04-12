@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: const FirstScreen(),
+      home: const ScrollingScreen(),
     );
   }
 }
@@ -32,7 +32,10 @@ class _FirstScreenState extends State<FirstScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('First Screen', style: TextStyle(fontFamily:'Oswald', fontSize: 30),),
+        title: const Text(
+          'First Screen',
+          style: TextStyle(fontFamily: 'Oswald', fontSize: 30),
+        ),
       ),
       body: Center(
         child: Image.asset(
@@ -49,5 +52,63 @@ class _FirstScreenState extends State<FirstScreen> {
       content: Text('$language selected'),
       duration: const Duration(seconds: 1),
     ));
+  }
+}
+
+class ScrollingScreen extends StatelessWidget {
+  const ScrollingScreen({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: ListView(
+        children: <Widget>[
+          Container(
+            height: 250,
+            decoration: BoxDecoration(
+                color: Colors.grey, border: Border.all(color: Colors.black)),
+            child: const Center(
+              child: Text(
+                '1',
+                style: TextStyle(fontSize: 50),
+              ),
+            ),
+          ),
+          Container(
+            height: 250,
+            decoration: BoxDecoration(
+                color: Colors.grey, border: Border.all(color: Colors.black)),
+            child: const Center(
+              child: Text(
+                '2',
+                style: TextStyle(fontSize: 50),
+              ),
+            ),
+          ),
+          Container(
+            height: 250,
+            decoration: BoxDecoration(
+                color: Colors.grey, border: Border.all(color: Colors.black)),
+            child: const Center(
+              child: Text(
+                '3',
+                style: TextStyle(fontSize: 50),
+              ),
+            ),
+          ),
+          Container(
+            height: 250,
+            decoration: BoxDecoration(
+                color: Colors.grey, border: Border.all(color: Colors.black)),
+            child: const Center(
+              child: Text(
+                '4',
+                style: TextStyle(fontSize: 50),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
